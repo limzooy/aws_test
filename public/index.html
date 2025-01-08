@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Data</title>
+  <script>
+    async function fetchStockData() {
+      const response = await fetch('/stocks');
+      const data = await response.json();
+      const tableBody = document.getElementById('stock-table-body');
+      tableBody.innerHTML = '';
+      
+      data.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${row.timestamp}</td>
+          <td>${row.open}</td>
+          <td>${row.high}</td>
+          <td>${row.low}</td>
+          <td>${row.close}</td>
+          <td>${row.volume}</td>
+        `;
+        tableBody.appendChild(tr);
+      });
+    }
+
+    window.onload = fetchStockData;
+  </script>
+</head>
+<body>
+  <h1>Stock Data</h1>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Timestamp</th>
+        <th>Open</th>
+        <th>High</th>
+        <th>Low</th>
+        <th>Close</th>
+        <th>Volume</th>
+      </tr>
+    </thead>
+    <tbody id="stock-table-body"></tbody>
+  </table>
+</body>
+</html>

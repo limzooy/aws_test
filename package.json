@@ -1,0 +1,21 @@
+{
+    "name": "aws-ec2-nodejs-server",
+    "version": "1.0.0",
+    "description": "AWS EC2에서 실행되는 Node.js 서버",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js",
+      "dev": "nodemon app.js",
+      "pm2": "pm2 start app.js --name 'aws-ec2-nodejs'"
+    },
+    "author": "Your Name",
+    "license": "MIT",
+    "dependencies": {
+      "express": "^4.18.2",
+      "cors": "^2.8.5"
+    },
+    "devDependencies": {
+      "nodemon": "^3.0.3"
+    }
+  }
+  
